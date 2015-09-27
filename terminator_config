@@ -1,21 +1,21 @@
 [global_config]
-   focus=sloppy
-   borderless=True
-   use_custom_url_handler=True
-   custom_url_handler=google-chrome-stable
+  borderless = True
+  custom_url_handler = google-chrome-stable
+  focus = sloppy
+  use_custom_url_handler = True
 [keybindings]
-   new_tab=<Ctrl>T
-[profiles]
-  [[default]]
-    background_image = None
-    scrollbar_position=disabled
-    show_titlebar=False
+  new_tab = <Ctrl>T
 [layouts]
   [[default]]
     [[[child1]]]
-      type = Terminal
       parent = window0
+      type = Terminal
     [[[window0]]]
-      type = Window
       parent = ""
+      type = Window
 [plugins]
+[profiles]
+  [[default]]
+    background_image = None
+    scrollbar_position = disabled
+    show_titlebar = False

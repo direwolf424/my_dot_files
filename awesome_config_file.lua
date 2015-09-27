@@ -372,7 +372,7 @@ function get_conky()
 	    awful.key({ modkey, "Control" }, "l",     function () awful.tag.incncol(-1)         end),
 	    awful.key({ modkey,           }, "space", function () awful.layout.inc(layouts,  1) end),
 	    awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(layouts, -1) end),
-	    awful.key({ modkey,           }, "c",     function () io.popen("galculator") end ),
+	    awful.key({ }, "XF86Calculator",     function () io.popen("galculator") end ),
 	    ---awful.key({XF86Calculator},function () io.popen("galculator") end ),
 	    awful.key({ modkey, "Control" }, "n", awful.client.restore),
 
@@ -390,12 +390,14 @@ function get_conky()
 	    --awful.key({ modkey }, "p", function() menubar.show() end),
 	    awful.key({ modkey }, "F6" , function() io.popen("xbacklight -inc 3") end ),
 	    awful.key({ modkey }, "F5" , function() io.popen("xbacklight -dec 3") end),
+	    --awful.key({ } ,"XF86AudioPlay" , awful.util.spawn_with_shell("controlvlc_socket.sh pause") ),
 	    awful.key({ } ,"XF86AudioPlay" ,function() io.popen("controlvlc_socket.sh pause") end),
 	    awful.key({ } ,"XF86AudioPrev" ,function() io.popen("controlvlc_socket.sh prev") end),
 	    awful.key({ } ,"XF86AudioNext" ,function() io.popen("controlvlc_socket.sh next") end),
 	    awful.key({ } ,"XF86AudioStop" ,function() io.popen("controlvlc_socket.sh stop") end),
 	    awful.key({ } ,"XF86AudioLowerVolume" ,function() io.popen("amixer set Master 5%-") end),
-	    awful.key({ } ,"XF86AudioRaiseVolume" ,function() io.popen("amixer set Master 5%+") end)	    
+	    awful.key({ } ,"XF86AudioRaiseVolume" ,function() io.popen("amixer set Master 5%+") end),
+	    awful.key({ } ,"XF86Search" , function() io.popen("synapse") end)
 )
 	    clientkeys = awful.util.table.join(
 	    awful.key({ modkey,           }, "f",      function (c) c.fullscreen = not c.fullscreen  end),
@@ -482,7 +484,7 @@ function get_conky()
 	    awful.rules.rules = {
 	       -- All clients will match this rule.
 	       { rule = { },
-	       properties = { border_width = beautiful.border_width,
+	       properties = { border_width = beautiful.border_width,size_hints_honor = false, 
 	       border_color = beautiful.border_normal,
 	       focus = awful.client.focus.filter,
 	       raise = true,
@@ -494,12 +496,11 @@ function get_conky()
 	       properties = { floating = true } },
 	       { rule = { class = "gimp" },
 	       properties = { floating = true } },
-	       { size_hints_honor = false },
 	       -- Set vlc to always map on tags number 2 of screen 1.
 	       { rule = { class = "VLC media player" },
-	       properties = { tag = tags[1][2] } },
+	       properties = { tag = tags[1][2] } }
 	       -- Set Firefox to always map on tag number 2 of screen 1
-	       { rule = { class = "Firefox" },  properties = {tag = tags[1][4]}}
+	       --{ rule = { class = "Firefox" },  properties = {tag = tags[1][4]}}
 	    }
 	    -- }}}
 
