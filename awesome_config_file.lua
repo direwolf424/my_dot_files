@@ -53,6 +53,7 @@ awful.util.spawn_with_shell("run_once terminator")
 awful.util.spawn_with_shell("run_once vlc")
 awful.util.spawn_with_shell("run_once google-chrome-stable")
 awful.util.spawn_with_shell("run_once synapse")
+awful.util.spawn_with_shell("run_once hdd")
 ---run_once("unclutter")
 ---run_once("conkyrc")
 ---run_once("terminator")
@@ -598,6 +599,17 @@ function get_conky()
 		  , timeout    = 15
 		  , position   = "bottom_left"
 	       })
+         end
+	       if (bat_capacity <=6 and bat_status == "Discharging") then
+		  naughty.notify({ title      = "Battery Warning"
+        , text       = "Suspending your laptop as " .. bat_capacity .."%" .. " left!"
+		  , fg="#ff0000"
+		  , bg="#deb887"
+		  , timeout    = 15
+		  , position   = "bottom_left"
+	       })
+          --delay(5)
+          awful.util.spawn_with_shell('systemctl suspend');
 	    end
 	 end
 

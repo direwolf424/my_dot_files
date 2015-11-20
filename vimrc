@@ -30,7 +30,8 @@ Plugin 'https://github.com/moll/vim-node.git'
 Plugin 'https://github.com/godlygeek/tabular.git'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'honza/vim-snippets'
-Plugin 'SirVer/ultisnips'
+Plugin 'ervandew/supertab'
+"Plugin 'SirVer/ultisnips'
 
 "All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -116,7 +117,6 @@ let g:tern_map_keys=1
 let g:tern_show_argument_hints='on_hold'
 
 "with mapneader we can do extra key combination
-let mapleader = ","
 let g:mapleader=","
 
 " fast saving using map leader
@@ -132,9 +132,10 @@ map <leader>' :NERDTreeToggle<CR>
 map <F9> : !g++ % && ./a.out <CR>
 
 "default code for c++
-autocmd BufNewFile *.cpp r ~/.vim/default.cpp 
+"autocmd BufNewFile *.cpp r ~/.vim/default.cpp 
 
-colorscheme mustang
+colorscheme muon
+"colorscheme sexybitch
 
 " copy to clipboard
 vnoremap <leader>y "+y
@@ -176,7 +177,7 @@ autocmd BufReadPost *
          \ endif
 
 " Remove stray ^M
-noremap <leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
+noremap <leader>mm mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
 
 
 " move between viewports
@@ -185,6 +186,8 @@ nnoremap <C-k> <C-W>k
 nnoremap <C-h> <C-W>h
 nnoremap <C-l> <C-W>l
 
+"configs for supertab
+let g:SuperTabDefaultCompletionType = "<c-n>"
 
 "syntastic config
 set statusline+=%#warningmsg#
@@ -258,10 +261,9 @@ endif
 let g:neocomplete#force_omni_input_patterns.c =
          \ '[^.[:digit:] *\t]\%(\.\|->\)\w*'
 let g:neocomplete#force_omni_input_patterns.cpp =
-         \ '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
+        \ '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
 let g:clang_complete_auto = 0
 let g:clang_auto_select = 0
 let g:clang_default_keymappings = 0
 let g:clang_use_library = 1
-
 
