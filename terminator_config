@@ -1,7 +1,8 @@
 [global_config]
   borderless = True
   custom_url_handler = google-chrome-stable
-  focus = sloppy
+  enabled_plugins = InactivityWatch, TestPlugin, LaunchpadCodeURLHandler, APTURLHandler, LaunchpadBugURLHandler
+  focus = mouse
   use_custom_url_handler = True
 [keybindings]
   new_tab = <Ctrl>T
@@ -17,5 +18,5 @@
 [profiles]
   [[default]]
     background_image = None
-    scrollbar_position = disabled
+    scrollbar_position = hidden
     show_titlebar = False

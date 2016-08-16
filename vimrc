@@ -31,6 +31,7 @@ Plugin 'https://github.com/godlygeek/tabular.git'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'honza/vim-snippets'
 Plugin 'ervandew/supertab'
+Plugin 'https://github.com/Valloric/MatchTagAlways.git'
 "Plugin 'SirVer/ultisnips'
 
 "All of your Plugins must be added before the following line
@@ -128,6 +129,9 @@ map <leader>f :NERDTreeFind<CR>
 " ,' to toggle in nerd tree
 map <leader>' :NERDTreeToggle<CR>
 
+
+map <leader>; :NERDTreeFocus<CR>
+
 "compile in c++
 map <F9> : !g++ % && ./a.out <CR>
 
@@ -153,6 +157,7 @@ nnoremap ; :
 map <leader>nt :tabnew<CR>
 map <leader>m :tabnext<CR>
 map <leader>n :tabprevious<CR>
+map <leader>q :tabclose<CR>
 
 " Open .vimrc
 :nnoremap <leader>ev :vsplit $MYVIMRC<cr>
